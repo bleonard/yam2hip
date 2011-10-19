@@ -26,3 +26,6 @@ On Heroku, that looks like this...
    heroku config:add YAMMER_OAUTH=v7tFEGTrCIITH4ye5YtzeQ HIPCHAT_TOKEN=f37d39c7ef92a85b0761efd18fdf78 HIPCHAT_ROOM=23108
    
    git push heroku master
+   
+   heroku scale clock=1
+   
