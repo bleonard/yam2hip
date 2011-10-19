@@ -2,12 +2,12 @@ module Yam2Hip
   def self.sync
     hip = Hipchat.messages
     yam = Yammer.messages
-    post = diff(yam, hip)
     if hip.size == 0
       puts "No hipchat messages!"
     elsif yam.size == 0
       put "No Yammer messages"
     else
+      post = diff(yam, hip)
       Hipchat.send_all(post)
     end
   end
