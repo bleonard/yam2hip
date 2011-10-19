@@ -16,7 +16,7 @@ module Yam2Hip
       end
       
       def key
-        val = plain.scan(/\/messages\/(\d+)/).to_s
+        val = plain.scan(/\/messages\/(\d+)/)
         if val.empty?
           plain.to_s
         else
