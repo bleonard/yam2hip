@@ -35,5 +35,11 @@ module Yam2Hip
       end
       out
     end
+    
+    def self.post(what)
+      what.each do |msg|
+        puts "#{msg}"
+      end
+    end
   end
 end

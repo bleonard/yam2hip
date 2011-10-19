@@ -1,18 +1,7 @@
 module Yam2Hip
   def self.sync
-    puts "\n---Yammer-------------"
-    yam = Yammer.messages
-    puts yam.collect(&:to_s).join("\n\n")
-    
-    puts "\n---Hipchat------------"
-    
-    hip = Hipchat.messages
-    puts hip.collect(&:to_s).join("\n\n")
-    
-    puts "\n---Diff-----------------"
-    
-    messages = diff(yam,hip)
-    puts messages.collect(&:to_s).join("\n\n")
+    messages = diff(Yammer.messages, Hipchat.messages)
+    Hipchat.post(messages)
   end
   
   def self.diff(yam, hip)
