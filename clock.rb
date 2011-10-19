@@ -8,4 +8,4 @@ handler do |job|
   Yam2Hip.sync
 end
 
-every(60.seconds, 'yam2hip')
+every(90.seconds, 'yam2hip')
