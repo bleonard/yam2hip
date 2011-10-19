@@ -7,9 +7,27 @@ module Yam2Hip
   def self.diff(yam, hip)
     # those that are in yam not in hip
     hash = {}
-    hip.each do |msg|
+    
+    puts "YAMMER...."
+    yam.each do |msg|
+      puts "   #{msg.key}: #{msg.plain}"
       hash[msg.key] = true
     end
-    yam.reject{ |msg| hash[msg.key] }
+    
+    puts "HIPCHAT....."
+    hip.each do |msg|
+      puts "   #{msg.key}: #{msg.plain}"
+      hash[msg.key] = true
+    end
+    
+    out = yam.reject{ |msg| hash[msg.key] }
+    
+    puts "POSTING...."
+    out.each do |msg|
+      puts "   #{msg.key}: #{msg.plain}"
+      hash[msg.key] = true
+    end
+    
+    out
   end
 end
