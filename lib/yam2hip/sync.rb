@@ -11,7 +11,6 @@ module Yam2Hip
     puts "YAMMER...."
     yam.each do |msg|
       puts "   #{msg.key}: #{msg.plain}"
-      hash[msg.key] = true
     end
     
     puts "HIPCHAT....."
@@ -25,7 +24,6 @@ module Yam2Hip
     puts "POSTING...."
     out.each do |msg|
       puts "   #{msg.key}: #{msg.plain}"
-      hash[msg.key] = true
     end
     
     out
