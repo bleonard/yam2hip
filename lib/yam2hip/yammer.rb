@@ -31,7 +31,7 @@ module Yam2Hip
     include ::HTTParty
     base_uri 'http://www.yammer.com/api/v1'
 
-    def self.messages
+    def self.fetch
       response = get("/messages.json?access_token=#{Config.yammer_token}")
       response.each do |item|
         return item.last if item.first == "messages"
@@ -39,13 +39,11 @@ module Yam2Hip
       return []
     end
     
-    def self.since(time)
+    def self.messages
       out = []
-      messages.each do |hash|
+      fetch.each do |hash|
         msg = Message.new(hash)
-        if msg.public?
-          out << msg if time.nil? or time < msg.time
-        end
+        out << msg if msg.public?
       end
       out
     end
