@@ -1,15 +1,15 @@
 module Yam2Hip
   def self.sync
-    messages = diff(Yammer.messages, Hipchat.messages)
-    Hipchat.post(messages)
+    yam = diff(Yammer.messages, Hipchat.messages)
+    Hipchat.send_all(yam)
   end
   
   def self.diff(yam, hip)
     # those that are in yam not in hip
     hash = {}
     hip.each do |msg|
-      hash[msg.to_s] = true
+      hash[msg.key] = true
     end
-    yam.reject{ |msg| hash[msg.to_s] }
+    yam.reject{ |msg| hash[msg.key] }
   end
 end

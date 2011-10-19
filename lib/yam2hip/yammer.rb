@@ -8,11 +8,23 @@ module Yam2Hip
       end
       
       def content
+        @hash["body"]["rich"]
+      end
+      
+      def plain
         @hash["body"]["plain"]
+      end
+      
+      def key
+        url.split('/').last
       end
       
       def time
         Time.parse(@hash["created_at"])
+      end
+      
+      def from
+        Yammer.username(@hash["sender_id"])
       end
       
       def url
@@ -20,7 +32,7 @@ module Yam2Hip
       end
       
       def to_s
-        "#{content}\n#{url}"
+        "#{content} &nbsp; <a href='#{url}'>Thread...</a>"
       end
       
       def public?
@@ -45,7 +57,12 @@ module Yam2Hip
         msg = Message.new(hash)
         out << msg if msg.public?
       end
-      out
+      out.reverse
+    end
+    
+    def self.username(user_id)
+      response = get("/users/#{user_id}.json?access_token=#{Config.yammer_token}")
+      response["full_name"] || response["name"]
     end
   end
 end
