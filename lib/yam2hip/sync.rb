@@ -1,12 +1,11 @@
 module Yam2Hip
-  class Sync
-    def self.since(time)
-      messages = Yammer.since(time)
-      puts messages.collect(&:to_s).join("\n\n")
-    end
+  def self.sync
+    yam = Yammer.messages
+    puts yam.collect(&:to_s).join("\n\n")
     
-    def self.cron
-      puts "Running cron"
-    end
+    puts "---------------"
+    
+    hip = Hipchat.messages
+    puts hip.collect(&:to_s).join("\n\n")
   end
 end

@@ -2,8 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     clockwork (0.3.1)
-    hipchat (0.4.0)
-      httparty
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -15,5 +13,4 @@ PLATFORMS
 
 DEPENDENCIES
   clockwork
-  hipchat
   httparty
