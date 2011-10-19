@@ -16,7 +16,7 @@ module Yam2Hip
       end
       
       def key
-        url.split('/').last
+        url.split('/').last.to_s
       end
       
       def time
