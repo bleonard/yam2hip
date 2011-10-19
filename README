@@ -1,9 +1,0 @@
-## Yam2Hip
-
-Syndicates Yammer to Hipchat
-
-### Setup
-This is setup to run on Heroku. Some config (environment) variables need to be set.
-
-I used these instructions to get an OAuth key: https://developer.yammer.com/api/oauth2.html
-export YAMMER_OAUTH=v7tFEGTrCIITH4ye5YtzeQ
