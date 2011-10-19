@@ -20,7 +20,7 @@ module Yam2Hip
         if val.empty?
           plain.to_s
         else
-          val.to_s
+          val.flatten.last.to_s
         end
       end
       
