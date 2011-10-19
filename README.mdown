@@ -21,7 +21,8 @@ And used that to figure out the room id: https://api.hipchat.com/v1/rooms/list?f
 
 On Heroku, that looks like this...
    
+   heroku create appname --stack cedar
+   
    heroku config:add YAMMER_OAUTH=v7tFEGTrCIITH4ye5YtzeQ HIPCHAT_TOKEN=f37d39c7ef92a85b0761efd18fdf78 HIPCHAT_ROOM=23108
    
    git push heroku master
-
