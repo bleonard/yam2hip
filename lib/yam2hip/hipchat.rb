@@ -60,7 +60,8 @@ module Yam2Hip
     end
     
     def self.send(content, from)
-      pieces = from.nil? ? [] : from.split(" ")
+      from ||= ""
+      pieces = from.split(" ")
       from = "#{pieces[0]} #{pieces[1][0,1]}." if pieces.size > 1
       
       post("/rooms/message?format=json&auth_token=#{Config.hipchat_token}", 
