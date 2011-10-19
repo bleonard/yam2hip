@@ -7,4 +7,4 @@ handler do |job|
   Yam2Hip::Sync.cron
 end
 
-every(30.seconds, 'yam2hip')
+every(60.seconds, 'yam2hip')
